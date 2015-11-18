@@ -4,6 +4,7 @@ package org.assertj.android.api.widget;
 import android.annotation.TargetApi;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
+import android.support.v4.content.ContextCompat;
 import org.assertj.android.api.view.AbstractViewAssert;
 
 import static android.os.Build.VERSION_CODES.HONEYCOMB;
@@ -58,6 +59,11 @@ public class ImageViewAssert extends AbstractViewAssert<ImageViewAssert, ImageVi
         .overridingErrorMessage("Expected drawable <%s> but was <%s>.", drawable, actualDrawable) //
         .isSameAs(drawable);
     return this;
+  }
+
+  public ImageViewAssert hasDrawable(int resId) {
+    isNotNull();
+    return hasDrawable(ContextCompat.getDrawable(actual.getContext(), resId));
   }
 
   @TargetApi(JELLY_BEAN)

@@ -3,6 +3,7 @@ apply plugin: 'com.android.library'
 dependencies {
   compile rootProject.ext.assertj
   compile rootProject.ext.supportAnnotations
+  compile rootProject.ext.supportV4
 }
 
 android {
